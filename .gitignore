@@ -1,0 +1,34 @@
+# macOS
+.DS_Store
+
+# Editor / IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Environment / secrets — never commit API keys, even by accident
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Logs and runtime
+*.log
+node_modules/
+__pycache__/
+*.pyc
+
+# Optional — uncomment if you want your journal entries to stay LOCAL only
+# (the journal contains your portfolio snapshots, trade history, research notes;
+# you might not want all that pushed to a public GitHub fork)
+#
+# journal/*.md
+# !journal/.gitkeep
+
+# Optional — uncomment if your strategy files contain sensitive details
+# (capital amounts, specific positions, etc.) that you don't want public
+#
+# strategies/*.md
+# !strategies/*.example.md
