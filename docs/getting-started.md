@@ -44,11 +44,11 @@ cd my-investments
 
 ### 2. Open the workspace in Claude Code
 
-Launch Claude Code. Use **File → Open** (or whatever your version calls it) to open the folder you just cloned. Once open, Claude Code automatically detects the `.claude/commands/` directory and makes the slash commands available: `/setup`, `/daily`, `/new-strategy`.
+Launch Claude Code. Use **File → Open** (or whatever your version calls it) to open the folder you just cloned. Once open, Claude Code automatically detects the `.claude/commands/` directory and makes the slash commands available: `/investment:setup`, `/investment:daily`, `/investment:new-strategy`.
 
-### 3. Run `/setup`
+### 3. Run `/investment:setup`
 
-In the Claude Code chat, type `/setup` and press Enter. The wizard walks you through:
+In the Claude Code chat, type `/investment:setup` and press Enter. The wizard walks you through:
 - Generating Alpaca API keys (in your Alpaca dashboard)
 - Storing them securely (in macOS Keychain, on Mac — other options for Linux/Windows)
 - Installing `uv` (a tool that runs the Alpaca connector)
@@ -75,11 +75,11 @@ In `./strategies/` there are three example strategies:
 
 That's it. The strategy is now live.
 
-Or, if you want a custom strategy, run `/new-strategy` — it'll ask you questions and generate a file for you.
+Or, if you want a custom strategy, run `/investment:new-strategy` — it'll ask you questions and generate a file for you.
 
-### 5. Run `/daily`
+### 5. Run `/investment:daily`
 
-Type `/daily` in Claude Code chat. The command:
+Type `/investment:daily` in Claude Code chat. The command:
 - Reads your strategy
 - Pulls your Alpaca portfolio
 - Calculates whether any rules fire today
@@ -92,15 +92,15 @@ If nothing fires (markets are calm or rising), the memo will say "No new orders 
 
 ## What to do next
 
-- **Keep running `/daily`** each market morning (Monday–Friday, ~9:30 AM ET or any time after).
+- **Keep running `/investment:daily`** each market morning (Monday–Friday, ~9:30 AM ET or any time after).
 - **Read the daily memo** in `journal/`. Over time these become your trading diary.
 - **Don't change the strategy file every day.** Let rules play out for at least a month before tuning.
 - **Review your strategy quarterly** (every 3 months) and decide if rules need adjustment. The `Open questions` section in each strategy file is where you list things to revisit.
 
 ## Common first-week questions
 
-**Q: I ran `/daily` and it said "Alpaca MCP isn't connected." What now?**
-A: The setup didn't finish or Claude Code needs a restart. Quit Claude Code, re-open, and try `/daily` again. If still broken, re-run `/setup`.
+**Q: I ran `/investment:daily` and it said "Alpaca MCP isn't connected." What now?**
+A: The setup didn't finish or Claude Code needs a restart. Quit Claude Code, re-open, and try `/investment:daily` again. If still broken, re-run `/investment:setup`.
 
 **Q: Does this work with brokers other than Alpaca?**
 A: Not out of the box. Alpaca is what the MCP connector talks to. You could adapt the strategy logic to other brokers manually (read the memo, place the same trade in Fidelity/Schwab/etc.) but the auto-portfolio-pull won't work.
@@ -111,7 +111,7 @@ A: Paper trading uses fake money in a simulated Alpaca account. You cannot lose 
 **Q: Can the AI place trades for me automatically?**
 A: **No.** This is a deliberate design choice — see `safety-and-limits.md`. The tool proposes; you execute. This prevents both accidental large trades and unauthorized money movement.
 
-**Q: What if I want to take a break and not run `/daily` every day?**
+**Q: What if I want to take a break and not run `/investment:daily` every day?**
 A: That's fine. The strategies are designed to be patient. If you skip a week, the next run reads the prior journal entries and figures out what you missed. No data is lost.
 
 ## Where to go from here

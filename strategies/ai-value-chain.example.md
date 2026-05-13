@@ -13,7 +13,7 @@ auto_research: daily
 
 Long-horizon basket targeting layers of the AI value chain **beyond** consensus mega-cap names (NVDA, MSFT, GOOGL, META, AMZN). Picks-and-shovels providers in power, cooling, advanced packaging, connectivity, specialty materials where AI capex is real but multiples haven't fully priced it in.
 
-> **This is a paused example.** To activate: change `status: paused` to `status: active`, adjust `capital_monthly_usd`, customize the watchlist if you want different names, and run `/daily`.
+> **This is a paused example.** To activate: change `status: paused` to `status: active`, adjust `capital_monthly_usd`, customize the watchlist if you want different names, and run `/investment:daily`.
 >
 > **The watchlist below is research-based as of 2026-05-13.** Theses, names, and rankings will go stale. Re-validate before activating.
 
@@ -77,7 +77,7 @@ If a name has a thesis-break signal in a given month, **skip that name** and red
 
 ## Daily research protocol (because `auto_research: daily`)
 
-The `/daily` command will, for this strategy:
+The `/investment:daily` command will, for this strategy:
 
 1. **Per-name news scan** — for each of the 8 HIGH names, web-search for material news in the last 24h (earnings, guidance, M&A, customer wins/losses, regulatory action, accounting events).
 2. **Broader chain landscape:**
@@ -91,7 +91,7 @@ Findings appended to "Live research notes" below (this is the only auto-edit exc
 
 ## Live research notes
 
-(Auto-appended by `/daily`. Each entry dated. After 30 entries, oldest move to `journal/<strategy-name>-research-archive.md`.)
+(Auto-appended by `/investment:daily`. Each entry dated. After 30 entries, oldest move to `journal/<strategy-name>-research-archive.md`.)
 
 ### 2026-05-13 — initial seed
 

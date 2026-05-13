@@ -7,7 +7,7 @@ All notable changes to this template are documented here. The format follows [Ke
 Initial public template release.
 
 ### Added
-- Three project-level slash commands: `/setup`, `/daily`, `/new-strategy`
+- Three project-level slash commands: `/investment:setup`, `/investment:daily`, `/investment:new-strategy`
 - Three example strategies, all shipped as `status: paused` for safety:
   - `dip-buying.example.md` — continuous-formula dip-buying on broad ETFs
   - `ai-value-chain.example.md` — DCA basket of AI infrastructure picks-and-shovels

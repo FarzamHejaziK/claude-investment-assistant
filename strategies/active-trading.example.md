@@ -13,7 +13,7 @@ review_cadence: quarterly
 
 Daily-checkpoint **buy-and-sell** strategy on a tight universe of large-cap names plus broad ETFs. Mean-reversion entries (oversold-bounce), explicit exit rules (take-profit / stop-loss / time-stop). Quarterly review for strategy effectiveness.
 
-> **This is a paused example.** To activate: change `status: paused` to `status: active`, adjust `capital_monthly_usd` and the universe if you want, and run `/daily`.
+> **This is a paused example.** To activate: change `status: paused` to `status: active`, adjust `capital_monthly_usd` and the universe if you want, and run `/investment:daily`.
 
 > **⚠️ Active trading typically underperforms buy-and-hold for retail investors over multi-year periods.** Multiple academic studies (Barber & Odean, FINRA, SPIVA) consistently find 70–90% of retail active traders underperform. **Treat this strategy as an experiment with capital you can afford to lose.** Quarterly review is the formal kill-switch checkpoint.
 
@@ -63,7 +63,7 @@ For each open position:
 
 ## Quarterly review (every Feb 1, May 1, Aug 1, Nov 1)
 
-The `/daily` run on those dates produces an extended Strategy notes section with:
+The `/investment:daily` run on those dates produces an extended Strategy notes section with:
 
 1. **Trade log:** number of trades, win rate, average win, average loss, profit factor, max drawdown.
 2. **Vs. buy-and-hold benchmark:** what did equal-weight DCA across the same 13 tickers return over the same period?
@@ -76,7 +76,7 @@ The `/daily` run on those dates produces an extended Strategy notes section with
 - No leverage, no options, no margin.
 - No instruments outside the universe above.
 - **Loss budget:** capital allocated to this strategy can fall to $0. Quarterly review is the only formal checkpoint.
-- **`/daily` proposes orders only; you execute every trade manually in Alpaca.**
+- **`/investment:daily` proposes orders only; you execute every trade manually in Alpaca.**
 
 ## Open questions / things to revisit
 

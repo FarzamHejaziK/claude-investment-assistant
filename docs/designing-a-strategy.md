@@ -1,10 +1,10 @@
 # Designing a strategy
 
-Every strategy in this workspace is a single markdown file in `./strategies/`. The `/daily` command reads each file with `status: active`, follows its rules, and proposes today's orders.
+Every strategy in this workspace is a single markdown file in `./strategies/`. The `/investment:daily` command reads each file with `status: active`, follows its rules, and proposes today's orders.
 
 This doc explains the anatomy of a strategy file so you can write your own or modify the examples.
 
-For an interactive builder, use `/new-strategy` — it asks questions and generates a file for you.
+For an interactive builder, use `/investment:new-strategy` — it asks questions and generates a file for you.
 
 ## File structure at a glance
 
@@ -39,23 +39,23 @@ review_cadence: quarterly     # optional — for active-trading; daily run produ
 
 ## The frontmatter (the YAML block at the top)
 
-These keys control how `/daily` treats the strategy.
+These keys control how `/investment:daily` treats the strategy.
 
 | Field | Required? | Values | What it does |
 |---|---|---|---|
 | `name` | Yes | lowercase-hyphenated | Used for logging and tagging journal entries |
-| `status` | Yes | `paused` / `active` / `archived` | `/daily` only processes `active` strategies |
+| `status` | Yes | `paused` / `active` / `archived` | `/investment:daily` only processes `active` strategies |
 | `account` | Yes | `alpaca-paper` / `alpaca-live` | Tells the daily run which mode is appropriate. Mostly informational; the actual paper/live config lives in your MCP setup. |
 | `capital_monthly_usd` | Yes | integer | Monthly budget cap. Total deployed in a calendar month can't exceed this. |
 | `horizon` | Yes | free text | Your stated hold horizon. Informational. |
 | `last_updated` | Yes | YYYY-MM-DD | When you last edited the file |
 | `version` | Yes | semver | Bump when you change rules |
-| `auto_research` | No | `daily` | If set, `/daily` does per-name news scans and appends to "Live research notes" |
-| `review_cadence` | No | `quarterly` | If set, `/daily` on the 1st of Feb/May/Aug/Nov produces extended trade-log summary |
+| `auto_research` | No | `daily` | If set, `/investment:daily` does per-name news scans and appends to "Live research notes" |
+| `review_cadence` | No | `quarterly` | If set, `/investment:daily` on the 1st of Feb/May/Aug/Nov produces extended trade-log summary |
 
 ## The body sections
 
-The body is markdown — write it however you want, but `/daily` looks for certain section names. The required ones are:
+The body is markdown — write it however you want, but `/investment:daily` looks for certain section names. The required ones are:
 
 ### `## Profile`
 
@@ -63,7 +63,7 @@ A short paragraph: who is this for, what's the horizon, what's the risk toleranc
 
 ### `## Targets` / `## Watchlist` / `## Universe`
 
-The list of tickers this strategy is allowed to trade. **Be explicit and exhaustive** — `/daily` enforces "no instruments outside this list."
+The list of tickers this strategy is allowed to trade. **Be explicit and exhaustive** — `/investment:daily` enforces "no instruments outside this list."
 
 For dip-buying: usually 1–3 broad ETFs.
 For DCA basket: usually 5–15 names.

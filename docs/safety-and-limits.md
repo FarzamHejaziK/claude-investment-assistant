@@ -4,7 +4,7 @@ This doc covers what this tool **will not** do, why, and what that means for you
 
 ## What this tool is
 
-A workspace template for organizing investment strategies. The `/daily` command reads your strategy files, pulls your Alpaca portfolio (read-only), and proposes specific orders based on the rules you wrote.
+A workspace template for organizing investment strategies. The `/investment:daily` command reads your strategy files, pulls your Alpaca portfolio (read-only), and proposes specific orders based on the rules you wrote.
 
 ## What this tool is NOT
 
@@ -18,7 +18,7 @@ A workspace template for organizing investment strategies. The `/daily` command 
 This is the most important design choice. Every order is a 3-step process:
 
 1. **The strategy file declares a rule** (e.g., "buy $50 of VTI when it dips 5% from its 50-day high")
-2. **The `/daily` command proposes an order** when the rule fires (writes it to today's journal entry, shows it in chat)
+2. **The `/investment:daily` command proposes an order** when the rule fires (writes it to today's journal entry, shows it in chat)
 3. **You execute the order** by opening Alpaca and placing it yourself
 
 The tool **does not skip step 3**. Even though the underlying Alpaca API supports placing orders, this workspace's settings explicitly deny those tools (`./claude/settings.json` blocks `mcp__alpaca__place_*` and related write endpoints).
@@ -51,7 +51,7 @@ The propose-only design prevents *unintended trades*, but it doesn't prevent:
 - **Bad strategies losing money.** A poorly-designed strategy will lose money even if you execute every proposed order correctly. The tool just follows the rules you wrote; it doesn't validate that those rules are good.
 - **Behavioral errors during execution.** If you skip rules you don't like, or place trades that weren't proposed, the tool can't help. The journal logs what you actually did vs. what was proposed, but it doesn't enforce.
 - **Market risk.** Any equity can drop 50%+ in a year. Broad indexes have had 50%+ drawdowns (2008, 2020 briefly). Your account value will fluctuate.
-- **MCP/API outages.** If Alpaca's API is down, `/daily` can't pull live data. If Claude Code has issues, you can't run the command. In both cases, you fall back to manual portfolio tracking.
+- **MCP/API outages.** If Alpaca's API is down, `/investment:daily` can't pull live data. If Claude Code has issues, you can't run the command. In both cases, you fall back to manual portfolio tracking.
 - **Stale strategy files.** If you wrote a strategy six months ago and the market has changed, the rules may no longer make sense. Quarterly review is the official checkpoint, but ultimately YOU need to keep the strategies sensible.
 
 ## Specific risks per strategy archetype
@@ -88,7 +88,7 @@ The author(s) are not licensed financial advisors. The example strategies in thi
 
 ## What this tool's "I won't do that" rules look like in practice
 
-When Claude is running `/daily` or `/setup` or `/new-strategy`, it will refuse to:
+When Claude is running `/investment:daily` or `/investment:setup` or `/investment:new-strategy`, it will refuse to:
 
 - Place an order on your behalf (even if you tell it to)
 - Modify a strategy's operational sections (Watchlist, Buy strategy, Sizing, Risk rules) without your explicit edit request

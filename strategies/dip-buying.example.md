@@ -12,7 +12,7 @@ version: 1.0
 
 Continuous-formula dip-buying on broad US ETFs. Idle cash parked in SGOV. Buy-only, long horizon, mechanical rule.
 
-> **This is a paused example.** To activate: change `status: paused` to `status: active` in the frontmatter above, adjust `capital_monthly_usd` to your real amount, and run `/daily`.
+> **This is a paused example.** To activate: change `status: paused` to `status: active` in the frontmatter above, adjust `capital_monthly_usd` to your real amount, and run `/investment:daily`.
 
 ## Profile
 
@@ -86,7 +86,7 @@ Where `deployed_in_cycle` is the running sum of buys into this target since the 
 - No margin, no options, no leverage.
 - No instruments outside VTI / QQQ / SGOV.
 - Never average down on a thesis break.
-- The `/daily` command proposes orders only; **you execute every trade manually** in Alpaca.
+- The `/investment:daily` command proposes orders only; **you execute every trade manually** in Alpaca.
 
 ## Open questions / things to revisit
 

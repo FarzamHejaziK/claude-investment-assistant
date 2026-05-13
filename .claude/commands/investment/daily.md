@@ -17,7 +17,7 @@ This workspace supports **multiple strategies**. Each strategy is a file in `./s
 - **Ignore files matching `*.example.md`** — those are inert templates shipped with the workspace.
 - Read each remaining strategy file. Parse the YAML frontmatter (`name`, `status`, `account`, `capital_monthly_usd`, `last_updated`, `version`, optionally `auto_research`, `review_cadence`).
 - **Filter to `status: active` strategies only.** Skip `status: paused` or `status: archived`.
-- If no active strategies exist, stop and tell the user: "No active strategies in `strategies/`. Either copy an example file and remove the `.example` suffix, or run `/new-strategy` to create one, then set its status to `active`."
+- If no active strategies exist, stop and tell the user: "No active strategies in `strategies/`. Either copy an example file and remove the `.example` suffix, or run `/investment:new-strategy` to create one, then set its status to `active`."
 - List the most recent 7 entries in `./journal/` and read them. You're looking for, per strategy:
   - `deployed_in_cycle` running totals per target
   - When the most recent cycle started for each target (last 50-day-high reset, for dip strategies)
@@ -35,7 +35,7 @@ This workspace supports **multiple strategies**. Each strategy is a file in `./s
 
    > ⚠️ **Alpaca MCP isn't connected, so I can't pull your portfolio or live quotes — that's a hard prerequisite for this command.**
    >
-   > Please run `/setup` to wire it up, then re-run `/daily`. See `docs/alpaca-setup.md` for the full walkthrough.
+   > Please run `/investment:setup` to wire it up, then re-run `/investment:daily`. See `docs/alpaca-setup.md` for the full walkthrough.
 
 4. Stop.
 

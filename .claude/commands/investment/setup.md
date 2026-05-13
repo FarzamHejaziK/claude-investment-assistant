@@ -7,7 +7,7 @@ allowed-tools: Bash, Read, WebFetch
 
 You are walking a non-programmer through setting up this workspace. Be patient, ask one thing at a time, confirm progress before moving on, and explain *why* at each step.
 
-The goal of this wizard: get the user from "fresh clone" to "able to run `/daily` successfully."
+The goal of this wizard: get the user from "fresh clone" to "able to run `/investment:daily` successfully."
 
 ## Procedure
 
@@ -131,8 +131,8 @@ Tell the user:
 > Next steps:
 > 1. Open one of the example strategies in `./strategies/`. Read it.
 > 2. If you want to use it as-is, change `status: paused` to `status: active` in the frontmatter, and adjust `capital_monthly_usd` to your real number.
-> 3. Or run `/new-strategy` to build a custom one interactively.
-> 4. Once you have at least one `status: active` strategy, run `/daily` to start the loop.
+> 3. Or run `/investment:new-strategy` to build a custom one interactively.
+> 4. Once you have at least one `status: active` strategy, run `/investment:daily` to start the loop.
 >
 > Read `docs/getting-started.md` for the full walkthrough and `docs/safety-and-limits.md` for what this tool will and won't do.
 

@@ -2,7 +2,7 @@
 
 This doc covers: opening an Alpaca account, generating API keys, storing them securely, wiring up the MCP connection, and switching between paper and live.
 
-For first-time setup, run `/setup` in Claude Code instead — it walks you through this interactively. Use this doc as reference if something goes wrong, or to refresh your memory later.
+For first-time setup, run `/investment:setup` in Claude Code instead — it walks you through this interactively. Use this doc as reference if something goes wrong, or to refresh your memory later.
 
 ## Paper vs. live — which to pick
 

@@ -11,7 +11,7 @@ You are helping the user create a new investment strategy file. Walk them throug
 
 ### 1. Greet and orient
 
-> "Let's build a new strategy. I'll ask you a few questions, then generate a strategy file in `./strategies/`. I won't run it for you — once it's written, you decide when to set `status: active` and run `/daily`.
+> "Let's build a new strategy. I'll ask you a few questions, then generate a strategy file in `./strategies/`. I won't run it for you — once it's written, you decide when to set `status: active` and run `/investment:daily`.
 >
 > First question: **what do you want to call this strategy?** Use lowercase, hyphens for spaces, no extension. Example: `my-tech-basket` or `bond-ladder`. This becomes the filename `strategies/<name>.md` and the `name:` in frontmatter."
 
@@ -130,13 +130,13 @@ After they approve:
 1. Write to `./strategies/<name>.md`.
 2. Confirm:
 
-   > "✅ Strategy `<name>` written to `strategies/<name>.md`. It's `status: paused` — open the file and change to `status: active` when you're ready to run it via `/daily`. Edit any rules in the file freely; the daily run will respect what's there."
+   > "✅ Strategy `<name>` written to `strategies/<name>.md`. It's `status: paused` — open the file and change to `status: active` when you're ready to run it via `/investment:daily`. Edit any rules in the file freely; the daily run will respect what's there."
 
 ## Hard rules
 
 - **Always start `status: paused`.** Never auto-activate.
 - **Validate filename:** lowercase, hyphens, no `.example` suffix, must be unique.
 - **Never write to an existing file** — refuse and ask for a different name.
-- **Always include a clear disclaimer** in the generated file (in the Profile or at the bottom): "This strategy is a tool for tracking the user's own decisions. The `/daily` command proposes orders; the user executes manually."
+- **Always include a clear disclaimer** in the generated file (in the Profile or at the bottom): "This strategy is a tool for tracking the user's own decisions. The `/investment:daily` command proposes orders; the user executes manually."
 - **Never propose violating the strategy's own rules.** If the user describes an active-trading strategy without exit rules, push back and require them.
 - **Show the user the draft before writing.** No surprise files.
