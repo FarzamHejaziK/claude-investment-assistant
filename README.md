@@ -1,10 +1,25 @@
+<div align="center">
+
 # investment-assistant
 
-A workspace template for designing, tracking, and running personal investment strategies with [Claude Code](https://claude.com/claude-code) and [Alpaca](https://alpaca.markets/).
+**A workspace template for designing, tracking, and running personal investment strategies with [Claude Code](https://claude.com/claude-code) and [Alpaca](https://alpaca.markets/).**
 
-You define your rules in markdown files. Each morning you run one command (`/daily`). It reads your portfolio, checks your rules, and tells you exactly what to buy or sell today. **You execute every trade yourself** — this tool proposes; it doesn't trade on your behalf.
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![GitHub stars](https://img.shields.io/github/stars/FarzamHejaziK/claude-investment-assistant?style=social)](https://github.com/FarzamHejaziK/claude-investment-assistant/stargazers)
+[![Last commit](https://img.shields.io/github/last-commit/FarzamHejaziK/claude-investment-assistant)](https://github.com/FarzamHejaziK/claude-investment-assistant/commits/main)
+[![Open issues](https://img.shields.io/github/issues/FarzamHejaziK/claude-investment-assistant)](https://github.com/FarzamHejaziK/claude-investment-assistant/issues)
+[![Built with Claude Code](https://img.shields.io/badge/built%20with-Claude%20Code-orange)](https://claude.com/claude-code)
+[![Powered by Alpaca](https://img.shields.io/badge/powered%20by-Alpaca-purple)](https://alpaca.markets/)
+
+[**Use this template →**](https://github.com/FarzamHejaziK/claude-investment-assistant/generate)
+
+[Quick start](#quick-start) • [Documentation](#documentation) • [Examples](#the-three-example-strategies) • [FAQ](docs/faq.md) • [Safety](docs/safety-and-limits.md)
+
+</div>
 
 ---
+
+You define your rules in markdown files. Each morning you run one command (`/daily`). It reads your portfolio, checks your rules, and tells you exactly what to buy or sell today. **You execute every trade yourself** — this tool proposes; it doesn't trade on your behalf.
 
 > ⚠️ **This is not financial advice.** This is a tool for organizing and tracking *your own* investment decisions. It does not place trades automatically. Past performance does not guarantee future results. **Use paper trading until you've tested for at least a month.** Read [`docs/safety-and-limits.md`](docs/safety-and-limits.md) before going live.
 
