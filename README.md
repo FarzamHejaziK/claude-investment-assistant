@@ -11,8 +11,6 @@
 [![Built with Claude Code](https://img.shields.io/badge/built%20with-Claude%20Code-orange)](https://claude.com/claude-code)
 [![Powered by Alpaca](https://img.shields.io/badge/powered%20by-Alpaca-purple)](https://alpaca.markets/)
 
-[**Use this template →**](https://github.com/FarzamHejaziK/claude-investment-assistant/generate)
-
 [Quick start](#quick-start) • [Documentation](#documentation) • [Examples](#the-three-example-strategies) • [FAQ](docs/faq.md) • [Safety](docs/safety-and-limits.md)
 
 </div>
