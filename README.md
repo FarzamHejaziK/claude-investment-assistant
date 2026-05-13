@@ -1,5 +1,7 @@
 <div align="center">
 
+<img src="docs/assets/logo.png" alt="Claude Investment Assistant" width="520" />
+
 # investment-assistant
 
 **A workspace template for designing, tracking, and running personal investment strategies with [Claude Code](https://claude.com/claude-code) and [Alpaca](https://alpaca.markets/).**
