@@ -122,6 +122,8 @@ your-investment-workspace/
 │   └── safety-and-limits.md
 ├── CLAUDE.md                      (workspace context loaded into every Claude Code session here)
 ├── README.md                      (you are here)
+├── CONTRIBUTING.md                (how to contribute to the template itself)
+├── SECURITY.md                    (how to report security issues privately)
 ├── LICENSE
 ├── CHANGELOG.md
 └── .gitignore
@@ -151,9 +153,9 @@ MIT. See [`LICENSE`](LICENSE). You can fork, modify, sell, or do anything else p
 
 ## Contributing
 
-This is a template. The best way to "contribute" is to fork and adapt for yourself. If you find bugs in the template itself (the commands, docs, or example strategies), open an issue or PR on this repo.
+This is a template. The best way to "contribute" is to fork and adapt it for yourself. If you find bugs in the template itself (the commands, docs, or example strategies), see [`CONTRIBUTING.md`](CONTRIBUTING.md) for what's in scope and how to file issues or PRs.
 
-Security issues: please report privately first.
+Security issues: see [`SECURITY.md`](SECURITY.md) — please report privately, not via public issues.
 
 ## Built with
 
