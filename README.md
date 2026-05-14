@@ -69,6 +69,8 @@ That's the whole loop. Patient, mechanical, and yours to customize.
 
 Or create your own: run `/investment:new-strategy` for an interactive builder.
 
+**Stuck or unsure?** Run `/investment:help` anytime. It's a conversational guide — ask about how the workspace fits together, what a command does, or talk through a strategy idea before building it. You can also just chat with Claude directly in this workspace; the same guidance is loaded via `CLAUDE.md`.
+
 Full walkthrough for non-programmers: [`docs/getting-started.md`](docs/getting-started.md).
 
 ## The three example strategies
@@ -90,18 +92,23 @@ Read each file to understand what it does before activating.
 | `/investment:setup` | Once, after cloning | First-time wizard: Alpaca API keys, OS keyring storage, MCP wiring, connection verification |
 | `/investment:daily` | Every market morning | Reads strategies → pulls portfolio → proposes today's orders → writes journal entry |
 | `/investment:new-strategy` | Whenever you want a new strategy | Interactive Q&A; outputs a strategy file in `./strategies/` |
+| `/investment:help` | Anytime you're unsure | Conversational guide — orientation, how a command works, talk through designing or modifying a strategy, troubleshooting |
 
-These commands live in `./.claude/commands/`. They're plain markdown — read them to understand what each does, or modify them to change behavior.
+These commands live in `./.claude/commands/investment/`. They're plain markdown — read them to understand what each does, or modify them to change behavior.
+
+You can also just chat with Claude in this workspace without invoking a command. The `CLAUDE.md` at the repo root primes Claude with the workspace's safety rules and pointers, so conversational questions ("what does this strategy do?", "should I lower my monthly budget?") work out of the box.
 
 ## File layout
 
 ```
 your-investment-workspace/
 ├── .claude/
-│   ├── commands/                  (the three slash commands)
-│   │   ├── daily.md
-│   │   ├── setup.md
-│   │   └── new-strategy.md
+│   ├── commands/
+│   │   └── investment/            (the slash commands — namespaced as /investment:*)
+│   │       ├── setup.md
+│   │       ├── daily.md
+│   │       ├── new-strategy.md
+│   │       └── help.md
 │   └── settings.json              (tool permissions — denies Alpaca order endpoints by default)
 ├── strategies/                    (your investment rules — one file per strategy)
 │   ├── *.example.md               (paused examples that ship with the template)
@@ -113,6 +120,7 @@ your-investment-workspace/
 │   ├── designing-a-strategy.md
 │   ├── faq.md
 │   └── safety-and-limits.md
+├── CLAUDE.md                      (workspace context loaded into every Claude Code session here)
 ├── README.md                      (you are here)
 ├── LICENSE
 ├── CHANGELOG.md
