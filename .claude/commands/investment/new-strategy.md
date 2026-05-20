@@ -77,7 +77,7 @@ If yes:
 
 After the type-specific questions:
 
-1. **`account:`** — `alpaca-paper` (recommended for first activation) or `alpaca-live`?
+1. **`account:`** — `alpaca-paper` or `alpaca-live`? (Informational metadata about which Alpaca account this strategy is designed for; the actual paper/live mode is set by the `ALPACA_PAPER_TRADE` env var in your MCP config, chosen during `/investment:setup`.)
 2. **`auto_research: daily`?** (already asked for DCA; ask for the other types here too)
 3. **Final sanity check:** show the user the proposed values they've given. Confirm.
 

@@ -15,7 +15,7 @@ A: Alpaca only, out of the box. The daily run uses Alpaca's API to read your por
 A: No, it works on Linux and Windows too. The Keychain commands in `/investment:setup` are macOS-specific; on other OSes you'll use `secret-tool` (Linux) or Credential Manager (Windows). See `alpaca-setup.md`.
 
 **Q: How much money do I need to start?**
-A: $0 if you start with paper trading. Paper accounts come with $100K simulated balance automatically. For live trading, Alpaca has no minimum, but you'll want at least $100–$500 to make trades meaningful.
+A: Depends on the mode you picked in `/investment:setup`. **Paper:** $0 — paper accounts come with $100K simulated balance automatically. **Live:** Alpaca has no minimum deposit, but you'll want at least $100–$500 so trades are meaningfully sized. Either way, neither paper nor live is a "default" — pick what matches your goal.
 
 ## Trading & safety
 

@@ -21,7 +21,7 @@ It does **not** place trades for you. It tells you what to do; you click the buy
 | **An Alpaca brokerage account** | This is where your money lives and where trades happen | Free to open; paper trading is free |
 | **Claude Code installed** | The tool that runs the slash commands | Free; install from https://claude.com/claude-code |
 | **About 30 minutes** | One-time setup | — |
-| **~$0** to start | Use paper trading (fake money) until you trust the system | — |
+| **~$0** to start (paper) or whatever you deposit (live) | `/investment:setup` asks paper or live up front — both supported | — |
 
 That's it. No programming knowledge required.
 
@@ -105,8 +105,8 @@ A: The setup didn't finish or Claude Code needs a restart. Quit Claude Code, re-
 **Q: Does this work with brokers other than Alpaca?**
 A: Not out of the box. Alpaca is what the MCP connector talks to. You could adapt the strategy logic to other brokers manually (read the memo, place the same trade in Fidelity/Schwab/etc.) but the auto-portfolio-pull won't work.
 
-**Q: Is paper trading really safe? Can I lose money?**
-A: Paper trading uses fake money in a simulated Alpaca account. You cannot lose real money in paper mode. Switch to live trading (real money) only after you've tested for at least a month. See `alpaca-setup.md` for how to switch.
+**Q: Paper vs. live — which should I pick?**
+A: Both are fully supported. **Paper** uses fake money in a simulated Alpaca account — zero financial risk, great for learning the tool's behavior. **Live** uses real money — real returns, real losses. The `/investment:setup` wizard asks you up front and proceeds accordingly. You can switch later by re-generating keys in Alpaca's other panel and re-running `claude mcp add` with the opposite `ALPACA_PAPER_TRADE` value (see `alpaca-setup.md`).
 
 **Q: Can the AI place trades for me automatically?**
 A: **No.** This is a deliberate design choice — see `safety-and-limits.md`. The tool proposes; you execute. This prevents both accidental large trades and unauthorized money movement.

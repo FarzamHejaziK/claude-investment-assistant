@@ -2,6 +2,11 @@
 
 All notable changes to this template are documented here. The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [Unreleased]
+
+### Changed
+- Paper trading is no longer the recommended "default" mode. `/investment:setup` now asks **paper or live** up front, with both presented as first-class options. Docs (README, getting-started, alpaca-setup, faq, safety-and-limits) updated to remove paper-first prescriptive language while keeping factual descriptions of both modes. Strategy file `account:` field clarified as informational only — the actual paper/live mode is controlled by the `ALPACA_PAPER_TRADE` env var in the MCP config.
+
 ## [0.1.0] — 2026-05-13
 
 Initial public template release.

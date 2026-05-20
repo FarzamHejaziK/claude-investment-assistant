@@ -16,9 +16,18 @@ The goal of this wizard: get the user from "fresh clone" to "able to run `/inves
 Ask the user, one at a time:
 - Are they on **macOS, Linux, or Windows**? (Affects Keychain availability — macOS has it natively; on Linux/Windows we'll use a different storage option.)
 - Do they already have an **Alpaca brokerage account**? If no, point them to https://alpaca.markets/ and pause here.
-- Do they want to start with **paper** trading (fake money, recommended) or **live** trading (real money)?
+- **Paper or live?** Quick framing — both are fully supported, neither is the "default":
+  - **Paper** — simulated money, simulated account, zero financial risk. Great for: learning the tool's behavior, validating a strategy you wrote, getting comfortable with the daily routine.
+  - **Live** — real money in a real Alpaca account. Real returns, real losses. Great for: deploying a strategy you've already validated, or going direct if you have prior conviction and accept the risk.
 
-If they pick live: **strongly recommend they start with paper first** — at least one month of paper runs before touching real money. Note that they can switch later by regenerating keys and updating Keychain.
+Whichever they pick, the only differences in the rest of the wizard are: (a) the Alpaca dashboard URL where keys are generated, and (b) the `ALPACA_PAPER_TRADE` env var value (`true` for paper, `false` for live). Otherwise the flow is identical.
+
+**If they pick live**, briefly confirm they understand:
+- Proposed orders, when executed by the user in Alpaca, move real money.
+- This is propose-only — Claude never auto-trades — but the user still clicks "buy" and lives with the outcome.
+- They can later switch modes by generating new keys in the other Alpaca panel, updating Keychain, and re-running `claude mcp add` with the opposite `ALPACA_PAPER_TRADE` value.
+
+Once confirmed, store their choice as `<mode>` (`paper` or `live`) and use it consistently in the steps below.
 
 ### 2. Generate Alpaca API keys
 

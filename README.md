@@ -21,7 +21,7 @@
 
 You define your rules in markdown files. Each morning you run one command (`/investment:daily`). It reads your portfolio, checks your rules, and tells you exactly what to buy or sell today. **You execute every trade yourself** — this tool proposes; it doesn't trade on your behalf.
 
-> ⚠️ **This is not financial advice.** This is a tool for organizing and tracking *your own* investment decisions. It does not place trades automatically. Past performance does not guarantee future results. **Use paper trading until you've tested for at least a month.** Read [`docs/safety-and-limits.md`](docs/safety-and-limits.md) before going live.
+> ⚠️ **This is not financial advice.** This is a tool for organizing and tracking *your own* investment decisions. It does not place trades automatically. Past performance does not guarantee future results. **Pick paper or live trading when you run `/investment:setup` — both are fully supported.** If you pick live, you're using real money; understand the risks before you do. Read [`docs/safety-and-limits.md`](docs/safety-and-limits.md).
 
 ---
 
@@ -61,7 +61,7 @@ That's the whole loop. Patient, mechanical, and yours to customize.
    cd <your-repo-name>
    ```
 3. **Open the folder in Claude Code** (File → Open).
-4. **Run `/investment:setup`** in the chat. The wizard walks you through: generating Alpaca API keys → storing them securely in your OS keyring → installing the connector → verifying the connection. Strongly recommended: start with paper trading.
+4. **Run `/investment:setup`** in the chat. The wizard asks **paper or live** up front, then walks you through: generating Alpaca API keys → storing them securely in your OS keyring → installing the connector → verifying the connection. Both flows are fully supported; pick what fits your goal.
 5. **Activate a strategy**:
    - Look in `./strategies/`. Three example strategies ship paused.
    - Pick one. Rename it (drop the `.example` suffix). Edit the frontmatter to set `status: active` and adjust `capital_monthly_usd` to your real number.

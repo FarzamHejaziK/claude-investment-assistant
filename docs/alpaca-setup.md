@@ -15,7 +15,7 @@ For first-time setup, run `/investment:setup` in Claude Code instead — it walk
 | **`ALPACA_PAPER_TRADE` env var** | `true` | `false` |
 | **Use for** | Learning, testing strategies, validating rules | Running tested strategies with real capital |
 
-**Always start with paper.** Run for at least one month, see how the strategies behave through real market conditions, then decide whether to flip to live.
+**Both are fully supported.** Paper is the lower-risk path for learning the tool. Live is the direct path if you already know what you want to run. Neither is a "default" — `/investment:setup` asks you which up front and proceeds accordingly. You can switch later (instructions below).
 
 ## Opening an Alpaca account
 
