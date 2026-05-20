@@ -7,6 +7,9 @@ All notable changes to this template are documented here. The format follows [Ke
 ### Changed
 - Paper trading is no longer the recommended "default" mode. `/investment:setup` now asks **paper or live** up front, with both presented as first-class options. Docs (README, getting-started, alpaca-setup, faq, safety-and-limits) updated to remove paper-first prescriptive language while keeping factual descriptions of both modes. Strategy file `account:` field clarified as informational only — the actual paper/live mode is controlled by the `ALPACA_PAPER_TRADE` env var in the MCP config.
 
+### Added
+- `/investment:setup` now walks the user through **each example strategy** and asks for a **per-strategy monthly budget** as part of the setup flow. Previously users had to manually rename `.example.md` files and edit `capital_monthly_usd`; now the wizard does it for them (or accepts the example default, or skips). All strategies still default to `status: paused`; user must explicitly opt in to activate. Active-trading gets an extra confirmation step that re-surfaces the underperformance warning before activation.
+
 ## [0.1.0] — 2026-05-13
 
 Initial public template release.

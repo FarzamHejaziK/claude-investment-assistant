@@ -1,6 +1,6 @@
 ---
-description: First-time setup wizard — wires up the Alpaca MCP, stores keys in macOS Keychain, verifies the connection.
-allowed-tools: Bash, Read, WebFetch
+description: First-time setup wizard — wires up the Alpaca MCP, stores keys in the OS keyring, verifies the connection, and walks through configuring a monthly budget for each example strategy.
+allowed-tools: Bash, Read, Write, Edit, Glob, WebFetch
 ---
 
 # First-time setup
@@ -131,17 +131,91 @@ Once Claude Code is restarted and the MCP is loaded, call `mcp__alpaca__get_acco
 
 This confirms the keys work and the connection is live.
 
-### 8. Print "you're set up"
+### 8. Configure your strategies — per-strategy monthly budget
+
+Now walk the user through each `.example.md` file in `./strategies/`. Process them in this order: **dip-buying → ai-value-chain → active-trading** (lowest-risk to highest-risk, which matches the introduction order). For each one:
+
+#### 8a. Summarize the strategy
+
+Read the strategy file's `## Profile` section plus any prominent warning callouts at the top. Print a 3–5 line summary for the user:
+- What the strategy does (one plain-English sentence)
+- The example file's current `capital_monthly_usd` default
+- Any risk warning baked into the file (e.g., active-trading's "70–90% of retail active traders underperform" notice — surface this verbatim before asking the user about activating it)
+
+#### 8b. Ask whether to use it, and at what budget
+
+```
+Want to use this strategy? Three options:
+  1. Yes — and let me set my own monthly budget
+  2. Yes — use the example default of $<value>/month
+  3. No / skip for now
+```
+
+If **option 1**:
+- Ask: "What's your monthly budget for this strategy (USD, positive integer)?"
+- Validate: must be > 0. If unusually small (< $50) or unusually large for the strategy type, confirm with the user — don't silently accept a typo.
+- For **active-trading specifically**: if budget > $500, re-state the underperformance warning and ask the user to confirm they accept the risk at that size.
+
+If **option 2**: use the example file's existing `capital_monthly_usd` value as-is.
+
+If **option 3**: leave the `.example.md` file untouched. Note "skipped" and move to the next strategy.
+
+#### 8c. Ask whether to activate or keep paused
+
+If the user picked option 1 or 2, ask:
+
+```
+Activate now (status: active) or keep paused (status: paused)?
+
+  - Paused (recommended) — strategy is configured but won't run until you flip the switch. Read the file once, understand the rules, then activate.
+  - Active — /investment:daily will start proposing orders for this strategy on the next run.
+```
+
+**Default to paused.** Only activate if the user explicitly chooses active.
+
+**For active-trading specifically:** even if the user picks active, surface the warning one more time and confirm: "Active trading has high underperformance odds. Still activate?" If they hesitate or pick paused, that's the safer outcome.
+
+#### 8d. Apply the changes
+
+For each strategy the user chose to use (option 1 or 2):
+
+1. Copy `./strategies/<name>.example.md` to `./strategies/<name>.md`. **Leave the `.example.md` file untouched** — it stays as a reference template in the repo.
+2. In the new `<name>.md`, edit the YAML frontmatter:
+   - Set `capital_monthly_usd:` to the user's chosen value
+   - Set `last_updated:` to today's date
+   - Set `version:` to `1.0` (this is the user's first version of their strategy)
+   - If the user chose "activate now," set `status: active`
+   - If the user chose "keep paused," leave `status: paused`
+   - If the user picked live mode in step 1, set `account: alpaca-live`. If paper, leave as `alpaca-paper`.
+
+#### 8e. Summary
+
+After all 3 strategies have been processed, print a recap:
+
+```
+Strategies configured:
+  ✓ dip-buying — $X/month, <status>
+  ✓ ai-value-chain — $X/month, <status>
+  ✗ active-trading — skipped
+  ...
+Active: N | Paused: M | Skipped: K
+```
+
+If at least one strategy is active, the user is ready to run `/investment:daily`. If everything is paused, the user needs to flip a status to `active` first (open the file, edit, save).
+
+### 9. Print "you're set up"
 
 Tell the user:
 
 > ✅ **Setup complete.** Your Alpaca MCP is connected and verified.
 >
-> Next steps:
-> 1. Open one of the example strategies in `./strategies/`. Read it.
-> 2. If you want to use it as-is, change `status: paused` to `status: active` in the frontmatter, and adjust `capital_monthly_usd` to your real number.
-> 3. Or run `/investment:new-strategy` to build a custom one interactively.
-> 4. Once you have at least one `status: active` strategy, run `/investment:daily` to start the loop.
+> **Your strategies:** [summary from step 8e]
+>
+> **Next steps:**
+> 1. If any strategies are `status: paused`, open them and change to `status: active` when ready.
+> 2. Run `/investment:daily` each market morning to get today's proposals.
+> 3. Run `/investment:new-strategy` anytime to build additional strategies.
+> 4. Run `/investment:help` if you have questions about anything.
 >
 > Read `docs/getting-started.md` for the full walkthrough and `docs/safety-and-limits.md` for what this tool will and won't do.
 

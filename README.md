@@ -61,11 +61,11 @@ That's the whole loop. Patient, mechanical, and yours to customize.
    cd <your-repo-name>
    ```
 3. **Open the folder in Claude Code** (File → Open).
-4. **Run `/investment:setup`** in the chat. The wizard asks **paper or live** up front, then walks you through: generating Alpaca API keys → storing them securely in your OS keyring → installing the connector → verifying the connection. Both flows are fully supported; pick what fits your goal.
-5. **Activate a strategy**:
-   - Look in `./strategies/`. Three example strategies ship paused.
-   - Pick one. Rename it (drop the `.example` suffix). Edit the frontmatter to set `status: active` and adjust `capital_monthly_usd` to your real number.
-   - Run `/investment:daily`. Done.
+4. **Run `/investment:setup`** in the chat. The wizard:
+   - Asks **paper or live** up front (both fully supported)
+   - Walks you through Alpaca API keys → OS keyring storage → connector install → connection verification
+   - Walks you through **each example strategy** and asks **your monthly budget** per strategy, then configures the files for you
+5. **Run `/investment:daily`** to start the loop. (If you kept everything paused during setup, open a strategy file and change `status: paused` → `status: active` first.)
 
 Or create your own: run `/investment:new-strategy` for an interactive builder.
 
